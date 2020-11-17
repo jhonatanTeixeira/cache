@@ -53,7 +53,7 @@ class Factory
 
         $cache = new $class(...$params);
 
-        if ($type === self::PROVIDER_DOCTRINE) {
+        if ($provider === self::PROVIDER_DOCTRINE) {
             return new DoctrineCacheBridge($cache);
         }
 
