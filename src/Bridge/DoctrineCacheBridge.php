@@ -17,7 +17,7 @@ class DoctrineCacheBridge implements CacheInterface
 
     public function get($key, $default = null)
     {
-        return $this->doctrineCache->fetch($key) ?: $default;
+        return $this->doctrineCache->fetch($key) ?? $default;
     }
 
     public function set($key, $value, $ttl = null)
@@ -39,7 +39,7 @@ class DoctrineCacheBridge implements CacheInterface
     {
         $items =  $this->doctrineCache->fetchMultiple($keys);
 
-        if (empty($items)) {
+        if (is_null($items)) {
             return $default;
         }
 
